@@ -1,0 +1,1003 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={task\_data.R},
+  pdfauthor={chris},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{task\_data.R}
+\author{chris}
+\date{2024-01-30}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#load the readxl library used to read Excel files}
+\FunctionTok{library}\NormalTok{(readxl)}
+
+\CommentTok{\#function reads the data from the Excel file and stores it in a data frame named task\_data}
+\NormalTok{task\_data }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"C:/Users/chris/Downloads/task\_data.xlsx"}\NormalTok{)}
+
+\CommentTok{\#function is used to open a data frame in a viewer pane}
+\FunctionTok{View}\NormalTok{(task\_data)}
+
+\CommentTok{\#tidyverse is a package that helps users transform and present data}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The following package(s) will be installed:
+## - tidyverse [2.0.0]
+## These packages will be installed into "D:/shamiri task/renv/library/R-4.3/x86_64-w64-mingw32".
+## 
+## # Installing packages --------------------------------------------------------
+## - Installing tidyverse ...                      OK [copied from cache in 0.4s]
+## Successfully installed 1 package in 0.46 seconds.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Load the tidyverse library which installs packages used for data import, tidying, manipulation, and visualization}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.4
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.4.4     v tibble    3.2.1
+## v lubridate 1.9.3     v tidyr     1.3.0
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#this function shows a preview of the data frame }
+\FunctionTok{head}\NormalTok{(task\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 21
+##   Time     Study_ID      Condition 1.\tLittle interest ~1 2.\tFeeling sad, dep~2
+##   <chr>    <chr>         <chr>     <chr>                  <chr>                 
+## 1 Baseline 01HOI9T3FO0Q~ control   Several days (between~ Several days (between~
+## 2 Baseline 1WALGGRWF8GA~ interven~ Not at all             Nearly/almost every d~
+## 3 Baseline 3S19TUHEYX4H~ interven~ Several days (between~ Over half the days (m~
+## 4 Baseline 07NW8YRGLE1Q~ interven~ Several days (between~ Not at all            
+## 5 Baseline 65JOM7YRWM49~ control   Not at all             Not at all            
+## 6 Baseline 144CELD783WM~ interven~ Several days (between~ Nearly/almost every d~
+## # i abbreviated names: 1: `1.\tLittle interest or pleasure in doing things?`,
+## #   2: `2.\tFeeling sad, depressed or hopeless?`
+## # i 16 more variables:
+## #   `3.\tTrouble falling or staying asleep, or sleeping too much?` <chr>,
+## #   `4.\tFeeling tired or having little energy?` <chr>,
+## #   `5.\tPoor appetite or eating too much (overeating)?` <chr>,
+## #   `6.\tFeeling bad about yourself – or that you are a failure or have let yourself or your family down?` <chr>, ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#this function shows the structure of the data frame}
+\FunctionTok{str}\NormalTok{(task\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [206 x 21] (S3: tbl_df/tbl/data.frame)
+##  $ Time                                                                                                                                                                          : chr [1:206] "Baseline" "Baseline" "Baseline" "Baseline" ...
+##  $ Study_ID                                                                                                                                                                      : chr [1:206] "01HOI9T3FO0QPD8RLU4VZPI" "1WALGGRWF8GALJWUP9GZCN" "3S19TUHEYX4HS5PTA3X6N5" "07NW8YRGLE1QBSOHM7R95V" ...
+##  $ Condition                                                                                                                                                                     : chr [1:206] "control" "intervention" "intervention" "intervention" ...
+##  $ 1.    Little interest or pleasure in doing things?                                                                                                                              : chr [1:206] "Several days (between Over half the days (more than 7 days)  and 7 days)" "Not at all" "Several days (between Over half the days (more than 7 days)  and 7 days)" "Several days (between Over half the days (more than 7 days)  and 7 days)" ...
+##  $ 2.    Feeling sad, depressed or hopeless?                                                                                                                                       : chr [1:206] "Several days (between Over half the days (more than 7 days)  and 7 days)" "Nearly/almost every day" "Over half the days (more than 7 days)" "Not at all" ...
+##  $ 3.    Trouble falling or staying asleep, or sleeping too much?                                                                                                                  : chr [1:206] "Several days (between Over half the days (more than 7 days)  and 7 days)" "Several days (between Over half the days (more than 7 days)  and 7 days)" "Over half the days (more than 7 days)" "Not at all" ...
+##  $ 4.    Feeling tired or having little energy?                                                                                                                                    : chr [1:206] "Over half the days (more than 7 days)" "Not at all" "Not at all" "Not at all" ...
+##  $ 5.    Poor appetite or eating too much (overeating)?                                                                                                                            : chr [1:206] "Several days (between Over half the days (more than 7 days)  and 7 days)" "Nearly/almost every day" "Several days (between Over half the days (more than 7 days)  and 7 days)" "Not at all" ...
+##  $ 6.    Feeling bad about yourself – or that you are a failure or have let yourself or your family down?                                                                          : chr [1:206] "Nearly/almost every day" "Nearly/almost every day" "Nearly/almost every day" "Several days (between Over half the days (more than 7 days)  and 7 days)" ...
+##  $ 7.    Trouble concentrating on things, such as reading a book?                                                                                                                  : chr [1:206] "Several days (between Over half the days (more than 7 days)  and 7 days)" "Nearly/almost every day" "Over half the days (more than 7 days)" "Not at all" ...
+##  $ 8.    Moving or speaking so slowly that other people could have noticed. Or the opposite — being so energetic or nervous that you have been moving around a lot more than usual?: chr [1:206] "Several days (between Over half the days (more than 7 days)  and 7 days)" "Several days (between Over half the days (more than 7 days)  and 7 days)" "Several days (between Over half the days (more than 7 days)  and 7 days)" "Not at all" ...
+##  $ 1.    Feeling nervous, anxious, restless, or uneasy?                                                                                                                            : chr [1:206] "Several days (between Over half the days (more than 7 days)  and 7 days)" "Several days (between Over half the days (more than 7 days)  and 7 days)" "Several days (between Over half the days (more than 7 days)  and 7 days)" "Not at all" ...
+##  $ 2.    Not being able to stop or control worrying about things?                                                                                                                  : chr [1:206] "Nearly/almost every day" "Several days (between Over half the days (more than 7 days)  and 7 days)" "Nearly/almost every day" "Over half the days (more than 7 days)" ...
+##  $ 3.    Worrying too much about different things?                                                                                                                                 : chr [1:206] "Nearly/almost every day" "Nearly/almost every day" "Nearly/almost every day" "Not at all" ...
+##  $ 4.    Trouble relaxing?                                                                                                                                                         : chr [1:206] "Over half the days (more than 7 days)" "Not at all" "Not at all" "Not at all" ...
+##  $ 5.    Being so restless or uneasy that it's hard to sit still?                                                                                                                  : chr [1:206] "Several days (between Over half the days (more than 7 days)  and 7 days)" "Nearly/almost every day" "Over half the days (more than 7 days)" "Not at all" ...
+##  $ 6.    Becoming easily annoyed or irritable?                                                                                                                                     : chr [1:206] "Not at all" "Several days (between Over half the days (more than 7 days)  and 7 days)" "Not at all" "Over half the days (more than 7 days)" ...
+##  $ 7.    Feeling afraid as if something bad might happen?                                                                                                                          : chr [1:206] "Several days (between Over half the days (more than 7 days)  and 7 days)" "Several days (between Over half the days (more than 7 days)  and 7 days)" "Nearly/almost every day" "Not at all" ...
+##  $ Age                                                                                                                                                                           : num [1:206] 14 15 14 14 14 14 15 17 14 15 ...
+##  $ Form                                                                                                                                                                          : num [1:206] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Gender                                                                                                                                                                        : chr [1:206] "F" "F" "M" "F" ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#this function shows the column names of the data fame}
+\FunctionTok{colnames}\NormalTok{(task\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Time"                                                                                                                                                                          
+##  [2] "Study_ID"                                                                                                                                                                      
+##  [3] "Condition"                                                                                                                                                                     
+##  [4] "1.\tLittle interest or pleasure in doing things?"                                                                                                                              
+##  [5] "2.\tFeeling sad, depressed or hopeless?"                                                                                                                                       
+##  [6] "3.\tTrouble falling or staying asleep, or sleeping too much?"                                                                                                                  
+##  [7] "4.\tFeeling tired or having little energy?"                                                                                                                                    
+##  [8] "5.\tPoor appetite or eating too much (overeating)?"                                                                                                                            
+##  [9] "6.\tFeeling bad about yourself – or that you are a failure or have let yourself or your family down?"                                                                          
+## [10] "7.\tTrouble concentrating on things, such as reading a book?"                                                                                                                  
+## [11] "8.\tMoving or speaking so slowly that other people could have noticed. Or the opposite — being so energetic or nervous that you have been moving around a lot more than usual?"
+## [12] "1.\tFeeling nervous, anxious, restless, or uneasy?"                                                                                                                            
+## [13] "2.\tNot being able to stop or control worrying about things?"                                                                                                                  
+## [14] "3.\tWorrying too much about different things?"                                                                                                                                 
+## [15] "4.\tTrouble relaxing?"                                                                                                                                                         
+## [16] "5.\tBeing so restless or uneasy that it's hard to sit still?"                                                                                                                  
+## [17] "6.\tBecoming easily annoyed or irritable?"                                                                                                                                     
+## [18] "7.\tFeeling afraid as if something bad might happen?"                                                                                                                          
+## [19] "Age"                                                                                                                                                                           
+## [20] "Form"                                                                                                                                                                          
+## [21] "Gender"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#this packages make it easier to clean up data}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"here"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The following package(s) will be installed:
+## - here [1.0.1]
+## These packages will be installed into "D:/shamiri task/renv/library/R-4.3/x86_64-w64-mingw32".
+## 
+## # Installing packages --------------------------------------------------------
+## - Installing here ...                           OK [copied from cache in 0.38s]
+## Successfully installed 1 package in 0.47 seconds.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"here"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## here() starts at D:/shamiri task
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"skimr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The following package(s) will be installed:
+## - skimr [2.1.5]
+## These packages will be installed into "D:/shamiri task/renv/library/R-4.3/x86_64-w64-mingw32".
+## 
+## # Installing packages --------------------------------------------------------
+## - Installing skimr ...                          OK [copied from cache in 0.38s]
+## Successfully installed 1 package in 0.45 seconds.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"skimr"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"janitor"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The following package(s) will be installed:
+## - janitor [2.2.0]
+## These packages will be installed into "D:/shamiri task/renv/library/R-4.3/x86_64-w64-mingw32".
+## 
+## # Installing packages --------------------------------------------------------
+## - Installing janitor ...                        OK [copied from cache in 0.37s]
+## Successfully installed 1 package in 0.54 seconds.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"janitor"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'janitor'
+## 
+## The following objects are masked from 'package:stats':
+## 
+##     chisq.test, fisher.test
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The following package(s) will be installed:
+## - dplyr [1.1.4]
+## These packages will be installed into "D:/shamiri task/renv/library/R-4.3/x86_64-w64-mingw32".
+## 
+## # Installing packages --------------------------------------------------------
+## - Installing dplyr ...                          OK [copied from cache in 0.29s]
+## Successfully installed 1 package in 0.38 seconds.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+
+\CommentTok{\#this function provides a summary of a data set}
+\FunctionTok{skim\_without\_charts}\NormalTok{(task\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Data summary}\tabularnewline
+\toprule\noalign{}
+\endfirsthead
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Name & task\_data \\
+Number of rows & 206 \\
+Number of columns & 21 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Column type frequency: & \\
+character & 19 \\
+numeric & 2 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Group variables & None \\
+\end{longtable}
+
+\textbf{Variable type: character}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.7489}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0433}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0606}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0173}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0173}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0260}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0390}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0476}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+min
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+max
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+empty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_unique
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+whitespace
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Time & 0 & 1 & 8 & 8 & 0 & 2 & 0 \\
+Study\_ID & 0 & 1 & 17 & 24 & 0 & 103 & 0 \\
+Condition & 0 & 1 & 7 & 12 & 0 & 2 & 0 \\
+1. Little interest or pleasure in doing things? & 0 & 1 & 2 & 72 & 0 & 5
+& 0 \\
+2. Feeling sad, depressed or hopeless? & 0 & 1 & 2 & 72 & 0 & 5 & 0 \\
+3. Trouble falling or staying asleep, or sleeping too much? & 0 & 1 & 2
+& 72 & 0 & 5 & 0 \\
+4. Feeling tired or having little energy? & 0 & 1 & 2 & 72 & 0 & 5 &
+0 \\
+5. Poor appetite or eating too much (overeating)? & 0 & 1 & 2 & 72 & 0 &
+5 & 0 \\
+6. Feeling bad about yourself -- or that you are a failure or have let
+yourself or your family down? & 0 & 1 & 2 & 72 & 0 & 5 & 0 \\
+7. Trouble concentrating on things, such as reading a book? & 0 & 1 & 2
+& 72 & 0 & 5 & 0 \\
+8. Moving or speaking so slowly that other people could have noticed. Or
+the opposite --- being so energetic or nervous that you have been moving
+around a lot more than usual? & 0 & 1 & 2 & 72 & 0 & 5 & 0 \\
+1. Feeling nervous, anxious, restless, or uneasy? & 0 & 1 & 2 & 72 & 0 &
+5 & 0 \\
+2. Not being able to stop or control worrying about things? & 0 & 1 & 2
+& 72 & 0 & 5 & 0 \\
+3. Worrying too much about different things? & 0 & 1 & 2 & 72 & 0 & 5 &
+0 \\
+4. Trouble relaxing? & 0 & 1 & 2 & 72 & 0 & 5 & 0 \\
+5. Being so restless or uneasy that it's hard to sit still? & 0 & 1 & 2
+& 72 & 0 & 5 & 0 \\
+6. Becoming easily annoyed or irritable? & 0 & 1 & 2 & 72 & 0 & 5 & 0 \\
+7. Feeling afraid as if something bad might happen? & 0 & 1 & 2 & 72 & 0
+& 5 & 0 \\
+Gender & 0 & 1 & 1 & 1 & 0 & 2 & 0 \\
+\end{longtable}
+
+\textbf{Variable type: numeric}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.2029}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1449}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.2029}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0870}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0725}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0435}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0725}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+sd
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p25
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p50
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p75
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p100
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Age & 0 & 1 & 15.54 & 1.22 & 13 & 15 & 15 & 17 & 18 \\
+Form & 0 & 1 & 1.90 & 0.86 & 1 & 1 & 2 & 3 & 3 \\
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# this function makes it possible to see every column in a data frame}
+\FunctionTok{glimpse}\NormalTok{(task\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 206
+## Columns: 21
+## $ Time                                                                                                                                                                             <chr> ~
+## $ Study_ID                                                                                                                                                                         <chr> ~
+## $ Condition                                                                                                                                                                        <chr> ~
+## $ `1.\tLittle interest or pleasure in doing things?`                                                                                                                               <chr> ~
+## $ `2.\tFeeling sad, depressed or hopeless?`                                                                                                                                        <chr> ~
+## $ `3.\tTrouble falling or staying asleep, or sleeping too much?`                                                                                                                   <chr> ~
+## $ `4.\tFeeling tired or having little energy?`                                                                                                                                     <chr> ~
+## $ `5.\tPoor appetite or eating too much (overeating)?`                                                                                                                             <chr> ~
+## $ `6.\tFeeling bad about yourself – or that you are a failure or have let yourself or your family down?`                                                                           <chr> ~
+## $ `7.\tTrouble concentrating on things, such as reading a book?`                                                                                                                   <chr> ~
+## $ `8.\tMoving or speaking so slowly that other people could have noticed. Or the opposite — being so energetic or nervous that you have been moving around a lot more than usual?` <chr> ~
+## $ `1.\tFeeling nervous, anxious, restless, or uneasy?`                                                                                                                             <chr> ~
+## $ `2.\tNot being able to stop or control worrying about things?`                                                                                                                   <chr> ~
+## $ `3.\tWorrying too much about different things?`                                                                                                                                  <chr> ~
+## $ `4.\tTrouble relaxing?`                                                                                                                                                          <chr> ~
+## $ `5.\tBeing so restless or uneasy that it's hard to sit still?`                                                                                                                   <chr> ~
+## $ `6.\tBecoming easily annoyed or irritable?`                                                                                                                                      <chr> ~
+## $ `7.\tFeeling afraid as if something bad might happen?`                                                                                                                           <chr> ~
+## $ Age                                                                                                                                                                              <dbl> ~
+## $ Form                                                                                                                                                                             <dbl> ~
+## $ Gender                                                                                                                                                                           <chr> ~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#This code renames the columns in the data frame to make them more uniform and easier to work with}
+\NormalTok{task\_data }\OtherTok{\textless{}{-}}\NormalTok{ task\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}
+    \AttributeTok{time =}\NormalTok{ Time,}
+    \AttributeTok{study\_id =}\NormalTok{ Study\_ID,}
+    \AttributeTok{condition =}\NormalTok{ Condition,}
+    \AttributeTok{PHQ\_1 =} \StringTok{\textasciigrave{}}\AttributeTok{1.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Little interest or pleasure in doing things?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{PHQ\_2 =} \StringTok{\textasciigrave{}}\AttributeTok{2.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Feeling sad, depressed or hopeless?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{PHQ\_3 =} \StringTok{\textasciigrave{}}\AttributeTok{3.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Trouble falling or staying asleep, or sleeping too much?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{PHQ\_4 =} \StringTok{\textasciigrave{}}\AttributeTok{4.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Feeling tired or having little energy?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{PHQ\_5 =} \StringTok{\textasciigrave{}}\AttributeTok{5.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Poor appetite or eating too much (overeating)?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{PHQ\_6 =} \StringTok{\textasciigrave{}}\AttributeTok{6.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Feeling bad about yourself – or that you are a failure or have let yourself or your family down?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{PHQ\_7 =} \StringTok{\textasciigrave{}}\AttributeTok{7.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Trouble concentrating on things, such as reading a book?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{PHQ\_8 =} \StringTok{\textasciigrave{}}\AttributeTok{8.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Moving or speaking so slowly that other people could have noticed. Or the opposite — being so energetic or nervous that you have been moving around a lot more than usual?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{GAD\_1 =} \StringTok{\textasciigrave{}}\AttributeTok{1.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Feeling nervous, anxious, restless, or uneasy?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{GAD\_2 =} \StringTok{\textasciigrave{}}\AttributeTok{2.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Not being able to stop or control worrying about things?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{GAD\_3 =} \StringTok{\textasciigrave{}}\AttributeTok{3.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Worrying too much about different things?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{GAD\_4 =} \StringTok{\textasciigrave{}}\AttributeTok{4.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Trouble relaxing?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{GAD\_5 =} \StringTok{\textasciigrave{}}\AttributeTok{5.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Being so restless or uneasy that it\textquotesingle{}s hard to sit still?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{GAD\_6 =} \StringTok{\textasciigrave{}}\AttributeTok{6.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Becoming easily annoyed or irritable?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{GAD\_7  =} \StringTok{\textasciigrave{}}\AttributeTok{7.}\SpecialCharTok{\textbackslash{}t}\AttributeTok{Feeling afraid as if something bad might happen?}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{age =}\NormalTok{ Age,}
+    \AttributeTok{form =}\NormalTok{ Form,}
+    \AttributeTok{gender =}\NormalTok{ Gender}
+\NormalTok{  )}
+
+
+\CommentTok{\#This code transforms the answers to their numeric counterpart to easily work with them}
+\CommentTok{\# List of columns to transform}
+\NormalTok{columns\_to\_transform }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"PHQ\_1"}\NormalTok{, }\StringTok{"PHQ\_2"}\NormalTok{,}
+                          \StringTok{"PHQ\_3"}\NormalTok{, }\StringTok{"PHQ\_4"}\NormalTok{,}
+                          \StringTok{"PHQ\_5"}\NormalTok{, }\StringTok{"PHQ\_6"}\NormalTok{, }\StringTok{"PHQ\_7"}\NormalTok{,}
+                          \StringTok{"PHQ\_8"}\NormalTok{, }\StringTok{"GAD\_1"}\NormalTok{, }\StringTok{"GAD\_2"}\NormalTok{,}
+                          \StringTok{"GAD\_3"}\NormalTok{, }\StringTok{"GAD\_4"}\NormalTok{, }\StringTok{"GAD\_5"}\NormalTok{,}
+                          \StringTok{"GAD\_6"}\NormalTok{, }\StringTok{"GAD\_7"}\NormalTok{)}
+
+\CommentTok{\# Recode values in specified columns}
+\NormalTok{task\_data }\OtherTok{\textless{}{-}}\NormalTok{ task\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate\_at}\NormalTok{(}\FunctionTok{vars}\NormalTok{(}\FunctionTok{matches}\NormalTok{(columns\_to\_transform)), }\SpecialCharTok{\textasciitilde{}}\FunctionTok{recode}\NormalTok{(., }
+                                                         \StringTok{"Not at all"} \OtherTok{=} \DecValTok{0}\NormalTok{,}
+                                                         \StringTok{"Several days (between Over half the days (more than 7 days)  and 7 days)"} \OtherTok{=} \DecValTok{1}\NormalTok{,}
+                                                         \StringTok{"Over half the days (more than 7 days)"} \OtherTok{=} \DecValTok{2}\NormalTok{,}
+                                                         \StringTok{"Nearly/almost every day"} \OtherTok{=} \DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: There were 15 warnings in `mutate()`.
+## The first warning was:
+## i In argument: `PHQ_1 = (structure(function (..., .x = ..1, .y = ..2, . = ..1)
+##   ...`.
+## Caused by warning:
+## ! Unreplaced values treated as NA as `.x` is not compatible.
+## Please specify replacements exhaustively or supply `.default`.
+## i Run `dplyr::last_dplyr_warnings()` to see the 14 remaining warnings.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(task\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 21
+##   time  study_id condition PHQ_1 PHQ_2 PHQ_3 PHQ_4 PHQ_5 PHQ_6 PHQ_7 PHQ_8 GAD_1
+##   <chr> <chr>    <chr>     <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+## 1 Base~ 01HOI9T~ control       1     1     1     2     1     3     1     1     1
+## 2 Base~ 1WALGGR~ interven~     0     3     1     0     3     3     3     1     1
+## 3 Base~ 3S19TUH~ interven~     1     2     2     0     1     3     2     1     1
+## 4 Base~ 07NW8YR~ interven~     1     0     0     0     0     1     0     0     0
+## 5 Base~ 65JOM7Y~ control       0     0     1     0     0     0     1     0     0
+## 6 Base~ 144CELD~ interven~     1     3     3     2     1     0     0     1     2
+## # i 9 more variables: GAD_2 <dbl>, GAD_3 <dbl>, GAD_4 <dbl>, GAD_5 <dbl>,
+## #   GAD_6 <dbl>, GAD_7 <dbl>, age <dbl>, form <dbl>, gender <chr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#this code checks if there are any null values in the dataframe}
+\CommentTok{\# Checking for null values in the entire dataset}
+\NormalTok{any\_nulls }\OtherTok{\textless{}{-}} \FunctionTok{any}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(task\_data))}
+\ControlFlowTok{if}\NormalTok{ (any\_nulls) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"There are null values in the dataset.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"There are no null values in the dataset.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## There are null values in the dataset.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Checking for null values in each column}
+\NormalTok{null\_counts }\OtherTok{\textless{}{-}} \FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(task\_data))}
+\FunctionTok{print}\NormalTok{(null\_counts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      time  study_id condition     PHQ_1     PHQ_2     PHQ_3     PHQ_4     PHQ_5 
+##         0         0         0         3         2         2         4         2 
+##     PHQ_6     PHQ_7     PHQ_8     GAD_1     GAD_2     GAD_3     GAD_4     GAD_5 
+##         2         2         2         2         1         2         1         1 
+##     GAD_6     GAD_7       age      form    gender 
+##         1         1         0         0         0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(task\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 206
+## Columns: 21
+## $ time      <chr> "Baseline", "Baseline", "Baseline", "Baseline", "Baseline", ~
+## $ study_id  <chr> "01HOI9T3FO0QPD8RLU4VZPI", "1WALGGRWF8GALJWUP9GZCN", "3S19TU~
+## $ condition <chr> "control", "intervention", "intervention", "intervention", "~
+## $ PHQ_1     <dbl> 1, 0, 1, 1, 0, 1, 2, 0, 3, 0, 2, 3, 0, 2, 1, 3, 1, 1, 1, 3, ~
+## $ PHQ_2     <dbl> 1, 3, 2, 0, 0, 3, 3, 1, 3, 1, 0, 3, 0, 0, 1, 0, 0, 0, 0, 3, ~
+## $ PHQ_3     <dbl> 1, 1, 2, 0, 1, 3, 2, 0, 2, 3, 3, 2, 0, 1, 3, 0, 1, 2, 1, 1, ~
+## $ PHQ_4     <dbl> 2, 0, 0, 0, 0, 2, 1, 3, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, ~
+## $ PHQ_5     <dbl> 1, 3, 1, 0, 0, 1, 1, 3, 1, 0, 3, 0, 0, 1, 3, 0, 0, 0, 1, 0, ~
+## $ PHQ_6     <dbl> 3, 3, 3, 1, 0, 0, 3, 0, 0, 3, 3, 3, 0, 0, 3, 0, 1, 0, 3, 1, ~
+## $ PHQ_7     <dbl> 1, 3, 2, 0, 1, 0, 1, 1, 3, 1, 3, 3, 0, 0, 3, 1, 1, 3, 0, 1, ~
+## $ PHQ_8     <dbl> 1, 1, 1, 0, 0, 1, 0, 1, 3, 3, 0, 0, 1, 3, 3, 0, 1, 0, 0, 1, ~
+## $ GAD_1     <dbl> 1, 1, 1, 0, 0, 2, 1, 3, 3, 3, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, ~
+## $ GAD_2     <dbl> 3, 1, 3, 2, 1, 0, 0, 1, 2, 0, 1, 3, 0, 0, 3, 0, 0, 0, 3, 1, ~
+## $ GAD_3     <dbl> 3, 3, 3, 0, 0, 1, 1, 0, 1, 0, 1, 3, 0, 1, 3, 0, 1, 1, 3, 3, ~
+## $ GAD_4     <dbl> 2, 0, 0, 0, 1, 1, 0, 1, 3, 0, 0, 3, 1, 0, 3, 0, 0, 0, 0, 0, ~
+## $ GAD_5     <dbl> 1, 3, 2, 0, 0, 0, 0, 1, 2, 0, 1, 1, 0, 1, 2, 0, 1, 0, 0, 0, ~
+## $ GAD_6     <dbl> 0, 1, 0, 2, 0, 2, 1, 3, 1, 3, 1, 2, 0, 0, 3, 0, 1, 1, 3, 1, ~
+## $ GAD_7     <dbl> 1, 1, 3, 0, 0, 0, 0, 1, 0, 0, 1, 3, 1, 1, 3, 0, 1, 0, 3, 1, ~
+## $ age       <dbl> 14, 15, 14, 14, 14, 14, 15, 17, 14, 15, 17, 14, 16, 14, 15, ~
+## $ form      <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+## $ gender    <chr> "F", "F", "M", "F", "F", "F", "M", "M", "F", "F", "M", "F", ~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("ggplot2")}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"reshape2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The following package(s) will be installed:
+## - reshape2 [1.4.4]
+## These packages will be installed into "D:/shamiri task/renv/library/R-4.3/x86_64-w64-mingw32".
+## 
+## # Installing packages --------------------------------------------------------
+## - Installing reshape2 ...                       OK [copied from cache in 0.39s]
+## Successfully installed 1 package in 0.44 seconds.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"reshape2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'reshape2'
+## 
+## The following object is masked from 'package:tidyr':
+## 
+##     smiths
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#This code is for calculating and plotting data to measure for depression for students }
+\CommentTok{\# List of columns}
+\NormalTok{columns\_to\_sum }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"PHQ\_1"}\NormalTok{, }\StringTok{"PHQ\_2"}\NormalTok{, }\StringTok{"PHQ\_3"}\NormalTok{, }\StringTok{"PHQ\_4"}\NormalTok{, }\StringTok{"PHQ\_5"}\NormalTok{, }\StringTok{"PHQ\_6"}\NormalTok{, }\StringTok{"PHQ\_7"}\NormalTok{, }\StringTok{"PHQ\_8"}\NormalTok{)}
+
+\CommentTok{\# Summing up values for each student}
+\NormalTok{task\_data}\SpecialCharTok{$}\NormalTok{depression\_measure }\OtherTok{\textless{}{-}} \FunctionTok{rowSums}\NormalTok{(task\_data[, columns\_to\_sum])}
+
+\FunctionTok{str}\NormalTok{(task\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [206 x 22] (S3: tbl_df/tbl/data.frame)
+##  $ time              : chr [1:206] "Baseline" "Baseline" "Baseline" "Baseline" ...
+##  $ study_id          : chr [1:206] "01HOI9T3FO0QPD8RLU4VZPI" "1WALGGRWF8GALJWUP9GZCN" "3S19TUHEYX4HS5PTA3X6N5" "07NW8YRGLE1QBSOHM7R95V" ...
+##  $ condition         : chr [1:206] "control" "intervention" "intervention" "intervention" ...
+##  $ PHQ_1             : num [1:206] 1 0 1 1 0 1 2 0 3 0 ...
+##  $ PHQ_2             : num [1:206] 1 3 2 0 0 3 3 1 3 1 ...
+##  $ PHQ_3             : num [1:206] 1 1 2 0 1 3 2 0 2 3 ...
+##  $ PHQ_4             : num [1:206] 2 0 0 0 0 2 1 3 1 0 ...
+##  $ PHQ_5             : num [1:206] 1 3 1 0 0 1 1 3 1 0 ...
+##  $ PHQ_6             : num [1:206] 3 3 3 1 0 0 3 0 0 3 ...
+##  $ PHQ_7             : num [1:206] 1 3 2 0 1 0 1 1 3 1 ...
+##  $ PHQ_8             : num [1:206] 1 1 1 0 0 1 0 1 3 3 ...
+##  $ GAD_1             : num [1:206] 1 1 1 0 0 2 1 3 3 3 ...
+##  $ GAD_2             : num [1:206] 3 1 3 2 1 0 0 1 2 0 ...
+##  $ GAD_3             : num [1:206] 3 3 3 0 0 1 1 0 1 0 ...
+##  $ GAD_4             : num [1:206] 2 0 0 0 1 1 0 1 3 0 ...
+##  $ GAD_5             : num [1:206] 1 3 2 0 0 0 0 1 2 0 ...
+##  $ GAD_6             : num [1:206] 0 1 0 2 0 2 1 3 1 3 ...
+##  $ GAD_7             : num [1:206] 1 1 3 0 0 0 0 1 0 0 ...
+##  $ age               : num [1:206] 14 15 14 14 14 14 15 17 14 15 ...
+##  $ form              : num [1:206] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ gender            : chr [1:206] "F" "F" "M" "F" ...
+##  $ depression_measure: num [1:206] 11 14 12 2 2 11 13 9 16 11 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Remove null values}
+\NormalTok{task\_data }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(task\_data)}
+
+\CommentTok{\# Categorize depression\_measure values}
+\NormalTok{task\_data}\SpecialCharTok{$}\NormalTok{depression\_category }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{depression\_measure,}
+                                             \AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\ConstantTok{Inf}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{24}\NormalTok{),}
+                                             \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Mild"}\NormalTok{, }\StringTok{"Moderate"}\NormalTok{, }\StringTok{"Moderately Severe"}\NormalTok{, }\StringTok{"Severe"}\NormalTok{),}
+                                             \AttributeTok{include.lowest =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Define colors for each category}
+\NormalTok{category\_colors }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"\#8B5F99"}\NormalTok{, }\StringTok{"\#A74FA7"}\NormalTok{, }\StringTok{"\#AD6FCC"}\NormalTok{, }\StringTok{"\#D4A6FF"}\NormalTok{)}
+
+\CommentTok{\# Plotting a bar chart with different colors}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{depression\_category),}
+        \AttributeTok{main =} \StringTok{"Depression Measure for All Students"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Depression Category"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =}\NormalTok{ category\_colors,}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting a bar chart comparing male and female students}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{depression\_category, task\_data}\SpecialCharTok{$}\NormalTok{gender),}
+        \AttributeTok{main =} \StringTok{"Depression Measure by Gender"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Depression Category"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#8B5F99"}\NormalTok{, }\StringTok{"\#A74FA7"}\NormalTok{, }\StringTok{"\#AD6FCC"}\NormalTok{, }\StringTok{"\#D4A6FF"}\NormalTok{),}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{beside =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting a stacked bar chart comparing baseline and endpoint}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{time, task\_data}\SpecialCharTok{$}\NormalTok{depression\_category),}
+        \AttributeTok{main =} \StringTok{"Depression Measure by Time Points at which Survey Was Taken"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Time"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"purple"}\NormalTok{, }\StringTok{"darkblue"}\NormalTok{),}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{beside =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Define colors for each form}
+\NormalTok{form\_colors }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"\#8B5F99"}\NormalTok{, }\StringTok{"\#A74FA7"}\NormalTok{, }\StringTok{"\#AD6FCC"}\NormalTok{, }\StringTok{"\#D4A6FF"}\NormalTok{)  }\CommentTok{\# Adjust colors as needed}
+
+\CommentTok{\# Plotting a stacked bar chart comparing Form 1, Form 2, and Form 3}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{depression\_category, task\_data}\SpecialCharTok{$}\NormalTok{form),}
+        \AttributeTok{main =} \StringTok{"Depression Measure by Form"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Depression Category"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =}\NormalTok{ form\_colors,}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{args.legend =} \FunctionTok{list}\NormalTok{(}\AttributeTok{x =} \StringTok{"topright"}\NormalTok{, }\AttributeTok{bty =} \StringTok{"n"}\NormalTok{, }\AttributeTok{inset =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.1}\NormalTok{)),}
+        \AttributeTok{beside =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting a stacked bar chart comparing Condition in which Survey was Taken}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{condition, task\_data}\SpecialCharTok{$}\NormalTok{depression\_category),}
+        \AttributeTok{main =} \StringTok{"Depression Measure by Condition in which Survey was Taken"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Condition"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"purple"}\NormalTok{, }\StringTok{"darkblue"}\NormalTok{),}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{beside =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting a stacked bar chart comparing depression for different ages}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{age, task\_data}\SpecialCharTok{$}\NormalTok{depression\_category),}
+        \AttributeTok{main =} \StringTok{"Depression Measure by Ages of Students"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Age"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"purple"}\NormalTok{, }\StringTok{"darkblue"}\NormalTok{, }\StringTok{"lightblue"}\NormalTok{, }\StringTok{"lightgreen"}\NormalTok{, }\StringTok{"orange"}\NormalTok{, }\StringTok{"darkred"}\NormalTok{),}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{beside =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#end of depression measure code}
+
+
+\CommentTok{\#This code is for calculating and plotting data to measure for Anxiety for students}
+\CommentTok{\# List of columns for anxiety scores}
+\NormalTok{anxiety\_columns }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"GAD\_1"}\NormalTok{, }\StringTok{"GAD\_2"}\NormalTok{, }\StringTok{"GAD\_3"}\NormalTok{, }\StringTok{"GAD\_4"}\NormalTok{, }\StringTok{"GAD\_5"}\NormalTok{, }\StringTok{"GAD\_6"}\NormalTok{, }\StringTok{"GAD\_7"}\NormalTok{)}
+
+\CommentTok{\# Summing up values for each student and creating a new column}
+\NormalTok{task\_data}\SpecialCharTok{$}\NormalTok{anxiety\_measure }\OtherTok{\textless{}{-}} \FunctionTok{rowSums}\NormalTok{(task\_data[, anxiety\_columns])}
+
+\CommentTok{\# Remove null values}
+\NormalTok{task\_data }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(task\_data)}
+
+\CommentTok{\# Define the anxiety measure categories}
+\NormalTok{task\_data}\SpecialCharTok{$}\NormalTok{anxiety\_categories }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{anxiety\_measure,}
+                          \AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\ConstantTok{Inf}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{21}\NormalTok{),}
+                          \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Mild"}\NormalTok{, }\StringTok{"Moderate"}\NormalTok{, }\StringTok{"Severe"}\NormalTok{),}
+                          \AttributeTok{include.lowest =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Plotting a bar chart for Anxiety Measure}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{anxiety\_categories),}
+        \AttributeTok{main =} \StringTok{"Anxiety Measure for Students"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Anxiety Category"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"lightgreen"}\NormalTok{, }\StringTok{"darkred"}\NormalTok{),}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-7.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(task\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [199 x 25] (S3: tbl_df/tbl/data.frame)
+##  $ time               : chr [1:199] "Baseline" "Baseline" "Baseline" "Baseline" ...
+##  $ study_id           : chr [1:199] "01HOI9T3FO0QPD8RLU4VZPI" "1WALGGRWF8GALJWUP9GZCN" "3S19TUHEYX4HS5PTA3X6N5" "07NW8YRGLE1QBSOHM7R95V" ...
+##  $ condition          : chr [1:199] "control" "intervention" "intervention" "intervention" ...
+##  $ PHQ_1              : num [1:199] 1 0 1 1 0 1 2 0 3 0 ...
+##  $ PHQ_2              : num [1:199] 1 3 2 0 0 3 3 1 3 1 ...
+##  $ PHQ_3              : num [1:199] 1 1 2 0 1 3 2 0 2 3 ...
+##  $ PHQ_4              : num [1:199] 2 0 0 0 0 2 1 3 1 0 ...
+##  $ PHQ_5              : num [1:199] 1 3 1 0 0 1 1 3 1 0 ...
+##  $ PHQ_6              : num [1:199] 3 3 3 1 0 0 3 0 0 3 ...
+##  $ PHQ_7              : num [1:199] 1 3 2 0 1 0 1 1 3 1 ...
+##  $ PHQ_8              : num [1:199] 1 1 1 0 0 1 0 1 3 3 ...
+##  $ GAD_1              : num [1:199] 1 1 1 0 0 2 1 3 3 3 ...
+##  $ GAD_2              : num [1:199] 3 1 3 2 1 0 0 1 2 0 ...
+##  $ GAD_3              : num [1:199] 3 3 3 0 0 1 1 0 1 0 ...
+##  $ GAD_4              : num [1:199] 2 0 0 0 1 1 0 1 3 0 ...
+##  $ GAD_5              : num [1:199] 1 3 2 0 0 0 0 1 2 0 ...
+##  $ GAD_6              : num [1:199] 0 1 0 2 0 2 1 3 1 3 ...
+##  $ GAD_7              : num [1:199] 1 1 3 0 0 0 0 1 0 0 ...
+##  $ age                : num [1:199] 14 15 14 14 14 14 15 17 14 15 ...
+##  $ form               : num [1:199] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ gender             : chr [1:199] "F" "F" "M" "F" ...
+##  $ depression_measure : num [1:199] 11 14 12 2 2 11 13 9 16 11 ...
+##  $ depression_category: Factor w/ 4 levels "Mild","Moderate",..: 2 2 2 1 1 2 2 1 3 2 ...
+##  $ anxiety_measure    : num [1:199] 11 10 12 4 2 6 3 10 12 6 ...
+##  $ anxiety_categories : Factor w/ 3 levels "Mild","Moderate",..: 2 1 2 1 1 1 1 1 2 1 ...
+##  - attr(*, "na.action")= 'omit' Named int [1:7] 106 126 129 151 153 154 186
+##   ..- attr(*, "names")= chr [1:7] "106" "126" "129" "151" ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting a bar chart comparing male and female students}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{anxiety\_categories, task\_data}\SpecialCharTok{$}\NormalTok{gender),}
+        \AttributeTok{main =} \StringTok{"Anxiety Measure by Gender"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Anxiety Category"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"lightgreen"}\NormalTok{, }\StringTok{"darkred"}\NormalTok{),}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{beside =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-8.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting a stacked bar chart comparing baseline and endpoint}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{time, task\_data}\SpecialCharTok{$}\NormalTok{anxiety\_categories),}
+        \AttributeTok{main =} \StringTok{"Anxiety Measure by Time Points at which Survey Was Taken"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Time"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"purple"}\NormalTok{, }\StringTok{"darkblue"}\NormalTok{),}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{beside =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-9.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Define colors for each form}
+\NormalTok{form\_colors }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"lightgreen"}\NormalTok{, }\StringTok{"darkred"}\NormalTok{)  }\CommentTok{\# Adjust colors as needed}
+
+\CommentTok{\# Plotting a stacked bar chart comparing Form 1, Form 2, and Form 3}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{anxiety\_categories, task\_data}\SpecialCharTok{$}\NormalTok{form),}
+        \AttributeTok{main =} \StringTok{"Anxiety Measure by Form"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Anxiety Category"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =}\NormalTok{ form\_colors,}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{args.legend =} \FunctionTok{list}\NormalTok{(}\AttributeTok{x =} \StringTok{"topright"}\NormalTok{, }\AttributeTok{bty =} \StringTok{"n"}\NormalTok{, }\AttributeTok{inset =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.1}\NormalTok{)),}
+        \AttributeTok{beside =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-10.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting a stacked bar chart comparing Condition in which Survey was Taken}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{condition, task\_data}\SpecialCharTok{$}\NormalTok{anxiety\_categories),}
+        \AttributeTok{main =} \StringTok{"Anxiety Measure by Condition in which Survey was Taken"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Condition"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"purple"}\NormalTok{, }\StringTok{"darkblue"}\NormalTok{),}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{beside =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-11.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting a stacked bar chart comparing anxiety for different ages}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(task\_data}\SpecialCharTok{$}\NormalTok{age, task\_data}\SpecialCharTok{$}\NormalTok{anxiety\_categories),}
+        \AttributeTok{main =} \StringTok{"Anxiety Measure by Ages of Students"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Age"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Number of Students"}\NormalTok{,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"purple"}\NormalTok{, }\StringTok{"darkblue"}\NormalTok{, }\StringTok{"lightblue"}\NormalTok{, }\StringTok{"lightgreen"}\NormalTok{, }\StringTok{"orange"}\NormalTok{, }\StringTok{"darkred"}\NormalTok{),}
+        \AttributeTok{legend.text =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{beside =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{task_data_files/figure-latex/unnamed-chunk-1-12.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#end of anxiety measure code}
+
+\FunctionTok{write.csv}\NormalTok{(task\_data, }\StringTok{"D:}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{shamiri task}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{task\_data.csv"}\NormalTok{, }\AttributeTok{row.names=}\ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
